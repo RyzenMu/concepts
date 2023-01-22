@@ -190,6 +190,71 @@ let message = "       some sentence      ";
 
 console.log(message.trim());
 
+//template literals
+
+console.log(`thank
+yoy
+for ${message} 
+watching
+`);
+
+
+
+// Date
+const d = new Date();
+console.log(d);
+console.log(d.getDate());
+console.log(d.getDay());
+console.log(d.getFullYear());
+console.log(d.getHours());
+console.log(d.getMonth());
+console.log(d.getTime());
+console.log(d.getUTCDate());
+
+
+const e = new Date("July 6 1996");
+
+console.log(e); 
+
+
+let [month, date, year] = new Date().toLocaleDateString("en-IN").split("/");
+
+console.log(month, date, year);
+
+
+//Arrays
+
+const cart = ["fruits", 1, true, undefined, null];
+
+const number = [4, 5, 6];
+
+const fruits = ['a', 'l', 'g'];
+
+fruits[3] = 'o';
+
+console.log(fruits);
+
+fruits.push('dd');
+
+console.log(fruits);
+
+fruits[1] = 'b';
+
+console.log(fruits);
+
+fruits.unshift('aaa');
+
+console.log(fruits);
+
+fruits.splice(1, 0, 'cc', 'gg', 'kk');
+
+console.log(fruits);
+
+
+
+
+
+
 
 
 
