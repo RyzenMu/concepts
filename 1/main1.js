@@ -236,3 +236,189 @@ stud.sort(function(a,b){
 });
 
 console.log(stud);
+
+// video 61 - testing an array
+
+//allow only adults
+
+const queue_by_age = [24, 32, 45, 1];
+
+let isAllowed = queue_by_age.every(function(value, index, array){
+   // console.log("value", value);
+   // console.log("index", index);
+   // console.log("array", array);
+
+   return value >= 18;
+});
+
+console.log("isAllowed", isAllowed);
+
+// queue_by_age = [1, 2, 3];
+
+let isAllowedSome = queue_by_age.some(function(value, index, array){
+   return value >=18;
+});
+
+console.log('isAllowedSome', isAllowedSome);
+
+const numbers = [1, 2, 3, 4, 5];
+
+let isEven = numbers.every(function(value, index, array){
+   return value%2 ==0;
+});
+
+console.log("is even", isEven);
+
+
+let isEven1 = numbers.some(function(value, index, array){
+   return value%2 ==0;
+});
+
+console.log("is even some", isEven1);
+
+
+
+//video - 62 - testing objects in array
+
+const items = [
+   {id: 1, names: "MObiles", isDeliverable : true },
+   {id: 2, names: "Asseories", isDeliverable : true },
+   {id: 3, names: " T V", isDeliverable : false },
+];
+
+let isDeliverable = items.every(function(value, index, array){
+   return value.isDeliverable;
+});
+
+console.log("Deliverable :", isDeliverable);
+
+let notDeliverable = items.some(function(value, index, array){
+   return value.isDeliverable == true;
+});
+
+console.log("Not Deliverable :", notDeliverable);
+
+
+
+// video 63 -- filtering an array
+
+const q_by_age = [24, 32, 45, 16];
+
+let adults = q_by_age.filter(function(value, index, array){
+   return value >= 18;
+});
+
+console.log("adults", adults);
+
+const numb = [1, 2, 3, 4, 5];
+
+let eve = numb.filter(function(value, index, array){
+   return value%2 == 0;
+})
+
+console.log("even numbers", eve);
+
+let odd = numb.filter(function(value, index, array){
+   return value%2 !== 0;
+})
+
+console.log("odd numbers", odd);
+
+const cart_items = [
+   {id : 1, items: 'Android mobile', cost: "6500"},
+   {id : 2, items: 'iphone mobile', cost: "27000"},
+   {id : 1, items: 'Windows mobile', cost: "8500"},
+];
+
+let low_item = cart_items.filter(function(value, index, array){
+   return value.cost < 10000;
+});
+
+console.log("Affordable phones", low_item);
+
+
+
+
+// video 64 - finding a javascript array
+
+let low_item_find = cart_items.find(function(value, index, array){
+   return value.cost < 10000;
+});
+
+console.log("Affordable phones find first occurence", low_item_find);
+
+let low_item_findIndexOf = cart_items.findIndex(function(value, index, array){
+   return value.cost < 10000;
+});
+
+console.log(" Affordable phone find index of ", low_item_findIndexOf);
+
+
+// video 65 - Array MAp
+
+const bumbers = [1, 2, 3, 4, 5];
+
+let bumbersMapped = bumbers.map(function(value, index, array){
+   return value * 3;
+});
+
+console.log("Mapped Bumpers", bumbersMapped);
+
+const peoples = [
+   {id : 1, first_name : "Ajith", last_name : "Kumar"},
+   {id : 2, first_name : "Anbu", last_name : "Selvan"},
+   {id : 3, first_name : "trisha", last_name : "grace"},
+];
+
+let fullNamee= peoples.map(function(value, index, array){
+   let fullName = [value.first_name, value.last_name].join(" ");
+   let obj = {id : value.id, fullName : fullName};
+   return obj;
+});
+
+console.log(fullNamee);
+
+// let final = 
+
+/* sort
+every, some,
+filter,
+map,
+*/
+
+// video 66, chaining methods
+
+let itemsA = [
+   { id : 1, title : "Android Phone", cost : "7500"},
+   { id : 2, title : "Gaming Computer", cost : "90500"},
+   { id : 1, title : "Head Phone", cost : "2500"},
+];
+
+// sort it using lowest price
+
+let sortedLow = itemsA.sort(function(a, b){
+   let costA = parseInt(a.cost);
+   let costb = parseInt(b.cost);
+   return costA - costb; // ascending
+   // return costb - costA; // ascending
+
+
+});
+
+console.log(" sorted items A", sortedLow);
+
+// sort it by title ascending
+
+// filter products less than 8000
+
+// map it like this // android phone - 7500;
+
+
+
+
+
+
+
+
+
+
