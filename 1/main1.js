@@ -184,3 +184,55 @@ console.log(splittedName);
 let joi = splittedName.join(" ");
 
 console.log(joi.toLowerCase());
+
+
+
+// video 60 - sorting an array
+
+
+const students = [3, 8, 1];
+
+students.sort();
+
+console.log(students);
+
+students.sort(function(a, b){
+   return b - a;
+});
+
+console.log(students);
+
+students.reverse();
+
+console.log(students);
+
+
+const stud = [
+   {id :3, name : "senthil"},
+   {id :8, name : "Guna"},
+   {id :1, name : "anbu"},
+
+]
+
+stud.sort(function(a, b){
+
+   nameA = a.name.toLowerCase;
+   nameB = b.name.toLowerCase;
+   if (nameA < nameB) return -1;
+
+   if (nameA > nameB) return 1;
+
+   return 0;
+
+});
+
+console.log(stud);
+
+
+stud.sort(function(a,b){
+   if (a.id < b.id) return -1;
+   if (a.id > b.id) return 1;
+   return 0;
+});
+
+console.log(stud);
