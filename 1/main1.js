@@ -391,7 +391,9 @@ map,
 let itemsA = [
    { id : 1, title : "Android Phone", cost : "7500"},
    { id : 2, title : "Gaming Computer", cost : "90500"},
-   { id : 1, title : "Head Phone", cost : "2500"},
+   { id : 3, title : "Head Phone", cost : "2500"},
+   { id : 4, title : "Basket", cost : "12500"},
+
 ];
 
 // sort it using lowest price
@@ -409,9 +411,107 @@ console.log(" sorted items A", sortedLow);
 
 // sort it by title ascending
 
+let sortByTitle = itemsA.sort(function(a, b){
+   return (a.title < b.title);
+});
+
+console.log("Sort By title", sortByTitle);
+
+let sortByTitleIf = itemsA.sort(function(a, b){
+   if(a.title < b.title) return -1;
+   if(a.title > b.title) return 1;
+   return 0;
+   });
+
+console.log("Sorted using if statement", sortByTitleIf);
+
 // filter products less than 8000
 
+let proLessThan8000 = itemsA.filter(function(value, index, array){
+   return value.cost < 8000;
+});
+
+console.log("products less than 8000", proLessThan8000);
+
 // map it like this // android phone - 7500;
+
+let proMapping = itemsA.map(function(value, index, array){
+   // console.log(`${value.title.toUpperCase()} - ${value.cost}`);
+   let title = value.title.toUpperCase();
+   let cost = value.cost;
+   let obj = {title : title, cost : cost};
+   return obj;
+});
+
+console.log("Mapped results is  ", proMapping);
+
+
+
+// video - 67, array reduce
+
+const donations = [45, 78, 95, 65, 4851, 1000];
+
+let total = donations.reduce(function(a, b){
+   // return a+b;
+   console.log(a);
+   console.log(b);
+   console.log('-------------');
+   return a+b;
+
+});
+
+console.log(total);
+
+const shoppingCart = [
+   {id:1, item: "Organic Milk", cost:45},
+   {id:2, item: "Bread", cost:20},
+   {id:3, item: "Maagi", cost:12},
+];
+
+let totalCost = shoppingCart.reduce(function(a, b){
+   return a+b.cost;
+}, 0);
+
+console.log("the total cost is :" , totalCost);
+
+let totalCostReduceRight = shoppingCart.reduceRight(function(a, b){
+   console.log(a);
+   return a+b.cost;
+}, 0);
+
+console.log(totalCostReduceRight);
+
+
+// video 68 - diffrence between array methods
+
+{
+   // sort()
+   let numbers = [2, 6, 1, 5, 7, 4, 3, 11];
+   numbers.sort((a, b) => a-b);
+   console.log(numbers);
+
+
+   numbers.sort((a, b) => b-a);
+   console.log(numbers);
+}
+
+{
+   // find
+   let numbers = [2, 7, 6, 2, 4, 3, 1, 6];
+   let findInde = numbers.find(function(value, index, array){
+      return value > 4;
+   });
+
+   console.log(findInde);
+
+}
+
+
+
+
+
+
+
 
 
 
