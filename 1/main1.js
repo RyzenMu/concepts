@@ -138,7 +138,7 @@ console.log(mag);
 
 let maggi1 = [...shopping_cart, 45, {name : "muruga"}, ...additional_cart]
 
-console.log(maggi1);
+console.log("Spread Operator", maggi1);
 
 
 // video 58 - iterating arrays
@@ -505,6 +505,297 @@ console.log(totalCostReduceRight);
    console.log(findInde);
 
 }
+
+
+// video 71 - Functions in depth
+
+{
+   let no1 = 45;
+   let no2 = 4218;
+   const addNo = function addNo(){
+      let tot = no1 + no2;
+      console.log(tot);
+   }
+   addNo();
+}
+
+{
+   // anonymous function
+   let no1 = 45431;
+   let no2 = 58724;
+   let add = function(){
+      let tot = no1+no2;
+      return tot;
+   };
+   console.log(add());
+}
+
+{
+   // let n1 = 45431;
+   // let n2 = 58724;
+   // const addNo = new Function("console.log(n1+n2)");
+   // addNo();
+}
+
+
+// video 72 - function hoisting
+
+{
+   print();
+
+   function print(){
+      console.log("today is tuesday");
+   }
+}
+
+
+{
+   // print();
+   
+
+   let print = function print(){
+      console.log("Todays date is january 24");
+   };
+
+   print();
+}
+
+
+// vcideo - 73 immediatedly invoking function IIFE
+
+{
+   let n1 = 5;
+   let n2 = 4;
+   
+   (function sum(num1, num2){
+      let tot = num1 + num2;
+      console.log(tot);
+   })(n1, n2);
+}
+
+{
+   (function d(){
+      let n1 = 16;
+      (function dis(p1) {
+         for (let i = 0; i <= p1; i++ ){
+            console.log(i);
+         }
+      })(n1);
+
+   })();
+}
+
+// video 74 - function arguments
+
+let tiffen = 65;
+let lunch = 250;
+let petrol = 99;
+
+function sumEx(tiffen, lunch, petrol){
+   let result = tiffen+lunch+petrol;
+   console.log(arguments);
+   let total = 0;
+   for (let val of arguments){
+      total += val;
+   };
+   console.log(total);
+   console.log(`your total expense is : ${result}`);
+   return result;
+};
+
+let result = sumEx(12, 55, 24, 45, 782, 82) + 100;
+
+console.log(result);
+
+
+function sum(){
+   let result = 0;
+   for (let val of arguments){
+      result += val;
+   };
+   console.log(result);
+   console.log(arguments[4]);
+   console.log(arguments);
+};
+
+sum(12, 34, 56, 78, 20, 300);
+
+{
+   let array = [1, 4, 9, 5];
+   console.log(array);
+}
+
+
+
+{
+   let obj = {
+      id : 5,
+      name : "mmm",
+      date : "01/24/2023"
+   };
+   console.log(obj);
+}
+
+
+
+
+// video 75 - rest operator
+
+{
+   function sumExpenses(loan, ...expenses){
+      console.log(expenses);
+      let t = expenses.reduce((a, b)=> {
+         return a + b;
+      });
+      console.log(t - loan);
+   };
+   let result = sumExpenses(100, 45, 38, 691, 81, 145);
+   console.log(result);
+   // result();
+}
+
+
+
+{
+   // video 76 - function default parameters
+
+   function calTax(cost, titile, tax = 18,){
+      tax = tax ?? 18;
+      taxAmount = cost * tax / 100;
+      console.log(`\n\ntaoal cost is ${cost} \n\n GST : ${tax}% is : ${taxAmount} \n \n Total MAount is ${cost+taxAmount}`);
+   }
+
+   calTax(45, 18);
+   calTax(55, 25);
+   calTax(88, "ship");
+}
+
+
+{
+   // video 77 - getters and setters
+
+   let student = {
+      firstName : " Anbu",
+      lastName : "Selavan",
+      get fullName (){
+          console.log(student.firstName +" "+ student.lastName);
+      },
+      set fullName(value){
+         let values = value.split(" ");
+         console.log(values);
+         this.firstName = values[0];
+         this.lastName = values[1] ?? " ";
+      }
+   };
+   student.fullName;   // getters 
+
+   // setters 
+
+   student.fullName = "TrishaKrishnan";
+
+   student.fullName;
+
+}
+
+{
+   // video -78 - error handling
+   // try and catch
+   let student = {
+      firstName : " Anbu",
+      lastName : "Selavan",
+      get fullName (){
+          console.log(student.firstName +" "+ student.lastName);
+      },
+      set fullName(value){
+         if (typeof value != "string"){
+            const err = new Error(" It is not a string.....");
+            console.log(err);
+            throw err;
+         } 
+         if (value.length <= 3) throw new Error("Name Invalid");
+         let values = value.split(" ");
+         console.log(values);
+         this.firstName = values[0];
+         this.lastName = values[1] ?? " ";
+      }
+   };
+   student.fullName;   // getters 
+
+   // setters 
+
+   student.fullName = "TrishaKrishnan";
+
+   student.fullName;
+
+   try {
+      student.fullName = 45;
+   }catch(ex){
+      console.log(ex);
+   }
+
+   student.fullName;
+
+   try {
+      student.fullName = "Tha";
+   }catch(ex){
+      console.log(ex);
+   }
+
+   student.fullName;
+
+  
+}
+
+{
+   // video 79 - javascript scopes
+
+   let message = " Hello World ";
+
+   {
+   let message = " Hello World ";
+   console.log(message);
+   }
+
+   
+
+   {
+   let message = ".......HH";
+   console.log(message);
+   }
+
+
+   function greetUser(){
+      let message = " Good Morning ";
+      console.log(message);
+      if(true){
+         let name = "Anbu";
+         console.log(name);
+      }
+   }
+
+   greetUser();
+
+   for(let i=0; i <= 10; i++){
+      console.log(message + " "+ i);
+   }
+
+   // console.log(i);
+
+   function log(message){
+      console.log(message);
+   }
+
+   log(message)
+
+}
+
+
+
+
+
+
+
+
 
 
 
