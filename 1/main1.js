@@ -787,6 +787,112 @@ sum(12, 34, 56, 78, 20, 300);
 
    log(message)
 
+   // for(let i= 0; i< 250; i++){
+   //    console.log(i);
+   // }
+
+}
+
+
+{
+   //video - 81 "this" keyword
+
+   const channel = {
+      title : "Cyberdude",
+      videoTitle : "Javascript",
+      languages : ['tamil', 'malayalam', 'telugu'],
+      subscribe(){
+         console.log(this);
+      },
+      showVideos(){
+         // console.log(this.languages);
+         this.languages.forEach(function(lang){
+            console.log(this.video, lang);
+         }, {video : "JS"})
+      },
+      showVideos1(){
+         // console.log(this.languages);
+         this.languages.forEach(function(lang){
+            console.log(this.videoTitle, lang);
+         }, this)
+      }
+   };
+   channel.subscribe();
+
+   function Share(channel_title){
+      this.channel_title = channel_title;
+      console.log(this);
+   };
+
+   const ShareVideo = new Share("Cyber Dude");
+
+   channel.showVideos();
+   channel.showVideos1();
+
+
+
+
+};
+
+{
+   // video - 82 , good practices this
+
+   const channel = {
+      title : "Cyberdude",
+      videoTitle : "Javascript",
+      languages : ['tamil', 'malayalam', 'telugu'],
+      subscribe(){
+         console.log(this);
+      },
+      showVideos(){
+         // console.log(this.languages);
+         let that = this;
+         this.languages.forEach(function(lang){
+            console.log(this.video, lang);
+         }, {video : "JS"})
+      },
+      showVideos1(){
+         // console.log(this.languages);
+         let that = this;
+         this.languages.forEach(function(lang){
+            console.log(that.videoTitle, lang);
+         })
+         
+      },
+      showVideos2(){
+         // console.log(this.languages);
+         // let that = this;
+         this.languages.forEach(function(lang){
+            console.log(this.videoTitle, lang);
+         }.bind(this));
+   }
+
+}
+
+   channel.showVideos();
+   channel.showVideos1();
+   channel.showVideos2();
+
+
+   function playVideo(title){
+      console.log(title);
+      console.log(this);
+   }
+
+   playVideo();
+   playVideo.call({videoTitle: "JSCR"}, "JS");
+   playVideo();
+
+   playVideo.apply({videoTitle: "JSAPPLY"}, ["OOP JS", "JCRR"]);
+
+
+   let newL = playVideo.bind({videoTitle:"JS BIND"});
+
+   console.log(newL());
+
+
+
+
 }
 
 
